@@ -1,4 +1,5 @@
 import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+
 import { Chat } from '../chat/chat.model';
 import { User } from '../users/user.model';
 

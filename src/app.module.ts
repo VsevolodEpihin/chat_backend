@@ -6,6 +6,10 @@ import { User } from './modules/users/user.model';
 import { AuthModule } from './modules/auth/auth.module';
 import { CustomJwtModule } from './modules/jwt/jwt.module';
 import { UserModule } from './modules/users/user.module';
+import { ChatsModule } from './modules/chat/chat.module';
+import { Chat } from './modules/chat/chat.model';
+import { Message } from './modules/message/message.model';
+import { MessageModule } from './modules/message/message.module';
 
 @Module({
   imports: [
@@ -23,12 +27,14 @@ import { UserModule } from './modules/users/user.module';
         username: config.get('DB_USERNAME'),
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_NAME'),
-        models: [User],
+        models: [Chat, Message, User],
         logging: console.log,
       }),
     }),
     UserModule,
     AuthModule,
+    ChatsModule,
+    MessageModule,
     CustomJwtModule,
   ],
 })
